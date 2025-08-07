@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Darubuddy – Split food & drink bills with ease</title>
+    <!--
+      The primary stylesheet. All of the core layout and styling rules live in
+      style.css. Keeping the CSS in a separate file helps keep the markup
+      readable and makes it simple to iterate on the design.
+    -->
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- Navigation bar -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <!-- Site logo uses plain text to avoid loading external fonts. -->
+            <div class="logo" tabindex="0">Darubuddy</div>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#split" class="nav-link">Split</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero section -->
+    <section id="home" class="hero" role="banner">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title">Simplify Your Gatherings</h1>
+            <p class="hero-subtitle">
+                Split alcohol and food costs seamlessly among friends with
+                Darubuddy.
+            </p>
+            <a href="#split" class="btn btn-primary">Start Splitting</a>
+        </div>
+    </section>
+
+    <!-- About section -->
+    <section id="about" class="about">
+        <div class="container about-container">
+            <div class="about-text">
+                <h2>What is Darubuddy?</h2>
+                <p>
+                    Darubuddy is a lightweight web application inspired by
+                    minimal, modern design. It allows you to calculate how
+                    much each person owes for shared food and drinks. No more
+                    complicated math or awkward conversations at the end of
+                    a fun evening—Darubuddy handles the numbers for you.
+                </p>
+                <ul class="feature-list">
+                    <li><strong>Simple interface</strong>: add your friends and enter the total costs—you’ll see each share instantly.</li>
+                    <li><strong>Store sessions</strong>: every calculation is saved locally so you can review previous splits any time.</li>
+                    <li><strong>Responsive design</strong>: the layout adapts gracefully to mobile, tablet and desktop screens.</li>
+                </ul>
+            </div>
+            <div class="about-image">
+                <!-- Illustration representing friends sharing food and drinks. -->
+                <img src="images/friends.png" alt="Friends enjoying drinks and food" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Split calculator section -->
+    <section id="split" class="split-section">
+        <div class="container split-container">
+            <!-- Sidebar for previous calculations -->
+            <aside class="previous-calculations" aria-labelledby="previous-title">
+                <h2 id="previous-title">Previous Calculations</h2>
+                <ul id="calculations-list" class="calculations-list">
+                    <!-- List entries rendered by script.js -->
+                </ul>
+            </aside>
+
+            <!-- Main calculator area -->
+            <div class="calculator" aria-labelledby="calculator-title">
+                <h2 id="calculator-title">Split your bill</h2>
+                <!-- Participants management -->
+                <div class="participants-section">
+                    <h3>Participants</h3>
+                    <div id="names-container" class="names-container" aria-live="polite">
+                        <!-- Name input fields appended dynamically in script.js -->
+                    </div>
+                    <button type="button" id="add-person" class="btn btn-secondary add-person">Add Participant</button>
+                </div>
+                <!-- Expenses management -->
+                <div class="expenses-section">
+                    <h3>Expenses</h3>
+                    <div id="expenses-container" class="expenses-container">
+                        <!-- Dynamic expense items will be injected here -->
+                    </div>
+                    <button type="button" id="add-expense" class="btn btn-secondary add-expense">Add Expense</button>
+                </div>
+                <!-- Calculation & results -->
+                <button type="button" id="calculate-btn" class="btn btn-primary calculate-btn">Calculate</button>
+                <div id="results" class="results"></div>
+                <button type="button" id="save-calculation" class="btn btn-secondary" style="display: none;">Save Calculation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p>&copy; <span id="currentYear"></span> Darubuddy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script src="script.js"></script>
+</body>
+</html>

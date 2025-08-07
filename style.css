@@ -1,0 +1,481 @@
+/*
+  Base styles for the Darubuddy web application. The design aims to capture
+  the sleek, minimal aesthetic of modern product pages while remaining
+  lightweight and easy to maintain. We favour semantic markup and
+  accessibility, so please retain the structural classes when modifying
+  styles.
+*/
+
+/* CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+/* Colour palette defined here for easy customisation */
+:root {
+  --color-bg: #0a0a10;
+  --color-bg-light: #f5f5f7;
+  --color-primary: #0071e3;
+  --color-secondary: #1d1d1f;
+  --color-text: #ffffff;
+  --color-muted: #a1a1a5;
+  --color-border: rgba(255, 255, 255, 0.1);
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navigation bar */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-bg);
+  z-index: 1000;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-link {
+  margin-left: 2rem;
+  color: var(--color-text);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  height: 90vh;
+  background-image: url('images/hero-bg.png');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--color-text);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  padding: 0 1rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  color: var(--color-muted);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* About section */
+.about {
+  background-color: var(--color-bg-light);
+  color: var(--color-secondary);
+  padding: 4rem 0;
+}
+
+.about-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 3rem;
+}
+
+.about-text {
+  flex: 1 1 60%;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+}
+
+.feature-list {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 0;
+}
+
+.feature-list li {
+  margin-bottom: 0.75rem;
+}
+
+.about-image {
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Split calculator section */
+.split-section {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  padding: 4rem 0;
+}
+
+.split-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2rem;
+}
+
+.previous-calculations {
+  flex: 1 1 30%;
+  border-right: 1px solid var(--color-border);
+  padding-right: 2rem;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.previous-calculations h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.calculations-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.calculation-item {
+  background-color: var(--color-secondary);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.calculation-item:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.calculation-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calculation-details {
+  margin-top: 0.5rem;
+  display: none;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.calculation-item.open .calculation-details {
+  display: block;
+}
+
+.calculation-item.open .calculation-summary {
+  font-weight: 600;
+}
+
+.calculator {
+  flex: 1 1 70%;
+}
+
+/* Participants and expenses sections */
+.participants-section,
+.expenses-section {
+  margin-bottom: 2rem;
+}
+
+.participants-section h3,
+.expenses-section h3 {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.expenses-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Individual expense card */
+.expense-item {
+  background-color: var(--color-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* Rows within an expense */
+.expense-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.expense-desc,
+.expense-amount {
+  flex: 1 1 200px;
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.expense-payer {
+  flex: 1 1 200px;
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+.expense-shared-by {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+}
+
+.shared-option {
+  /* Display each checkbox with its label side by side.  We also set a pointer
+     cursor so that the entire label is clickable on touch devices. */
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.shared-option input {
+  /* Increase the size of the checkbox for better touch accessibility and
+     provide spacing to the right so labels don't crowd the box. */
+  margin-right: 0.35rem;
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Remove expense button */
+.remove-expense {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.2rem;
+  margin-left: auto;
+}
+
+/* Lists used in results and saved calculations */
+.summary-list,
+.settle-list,
+.expense-list,
+.net-list,
+.settlement-list {
+  list-style-type: none;
+  padding-left: 1rem;
+  margin: 0.5rem 0 1rem;
+}
+
+.summary-list li,
+.settle-list li,
+.expense-list li,
+.net-list li,
+.settlement-list li {
+  margin-bottom: 0.4rem;
+}
+
+.calculator h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.split-form .form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.split-form label {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.split-form input {
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.names-container {
+  margin-bottom: 1rem;
+}
+
+.name-field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.name-field input {
+  flex-grow: 1;
+  margin-right: 0.5rem;
+  padding: 0.6rem;
+  border-radius: 4px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.name-field .remove-person {
+  background: transparent;
+  border: none;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.2rem;
+}
+
+.add-person {
+  margin-bottom: 1rem;
+  align-self: flex-start;
+}
+
+.results {
+  margin-top: 2rem;
+}
+
+.result-item {
+  margin-bottom: 0.5rem;
+}
+
+.footer {
+  background-color: var(--color-secondary);
+  color: var(--color-muted);
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .split-container {
+    flex-direction: column;
+  }
+  .previous-calculations {
+    flex: 1 1 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
+    padding-right: 0;
+    padding-bottom: 2rem;
+  }
+  .calculator {
+    flex: 1 1 100%;
+  }
+  .nav-links .nav-link {
+    margin-left: 1rem;
+    font-size: 0.9rem;
+  }
+}
